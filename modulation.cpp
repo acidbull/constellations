@@ -236,26 +236,26 @@ int main() {
     runSimulation(QAMModulator::QAM64, variances, numBits, "ber_qam64.txt");
     
     std::cout << R"(import numpy as np
-import matplotlib.pyplot as plt
+    import matplotlib.pyplot as plt
 
-qpsk = np.loadtxt('ber_qpsk.txt', comments='#')
-qam16 = np.loadtxt('ber_qam16.txt', comments='#')
+    qpsk = np.loadtxt('ber_qpsk.txt', comments='#')
+    qam16 = np.loadtxt('ber_qam16.txt', comments='#')
 
-qpsk = qpsk[qpsk[:,1] > 0]
+    qpsk = qpsk[qpsk[:,1] > 0]
 
-snr_qpsk = 10 * np.log10(1.0 / qpsk[:,0])
-snr_qam16 = 10 * np.log10(1.0 / qam16[:,0])
+    snr_qpsk = 10 * np.log10(1.0 / qpsk[:,0])
+    snr_qam16 = 10 * np.log10(1.0 / qam16[:,0])
 
-plt.figure(figsize=(10, 6))
-plt.semilogy(snr_qpsk, qpsk[:,1], 'o-', label='QPSK')
-plt.semilogy(snr_qam16, qam16[:,1], 's-', label='16-QAM')
-plt.xlabel('SNR (dB)')
-plt.ylabel('Bit Error Rate (BER)')
-plt.title('BER и SNR для QAM Модуляции')
-plt.grid(True, which='both', linestyle='--', alpha=0.7)
-plt.legend()
-plt.ylim([1e-6, 1])
-plt.show())";
+    plt.figure(figsize=(10, 6))
+    plt.semilogy(snr_qpsk, qpsk[:,1], 'o-', label='QPSK')
+    plt.semilogy(snr_qam16, qam16[:,1], 's-', label='16-QAM')
+    plt.xlabel('SNR (dB)')
+    plt.ylabel('Bit Error Rate (BER)')
+    plt.title('BER и SNR для QAM Модуляции')
+    plt.grid(True, which='both', linestyle='--', alpha=0.7)
+    plt.legend()
+    plt.ylim([1e-6, 1])
+    plt.show())";
     
     return 0;
 }
